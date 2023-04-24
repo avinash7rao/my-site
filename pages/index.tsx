@@ -7,6 +7,7 @@ import {
   AiFillLinkedin,
   AiFillGithub,
 } from "react-icons/ai";
+import { BiUserCircle } from "react-icons/bi";
 import myAvatar from "./images/my-avatar.png";
 import React, { createContext, useState } from "react";
 
@@ -42,11 +43,11 @@ export default function Home() {
               <ul className='flex row-auto items-center space-x-3'>
                 <li>
                   <a
-                    className='text-xl text-white hover:text-gray-300'
                     href='https://docs.google.com/document/d/1P-VQ-cWAOPuug_vvYbLwrKTmzR2D8ZW1hh-66WACEO4/edit?usp=sharing'
                     target='_blank'
+                    aria-label='Avinash`s resume'
                     rel='noopener noreferrer'>
-                    Resume
+                    <BiUserCircle className='text-2xl text-white cursor-pointer !important' />
                   </a>
                 </li>
                 <li>
@@ -68,7 +69,7 @@ export default function Home() {
               <div className='mx-auto bg-gradient-to-b from-teal-500 rounded-full w-80 h-80 relative overflow-hidden mt-20 md:h-96 md:w-96'>
                 <Image
                   src={myAvatar}
-                  alt='avinash`s avatar'
+                  alt='Avinash`s avatar'
                   layout='fill'
                   objectFit='cover'
                 />
@@ -87,12 +88,14 @@ export default function Home() {
                 <a
                   href='https://www.linkedin.com/in/avinashrao/'
                   target='_blank'
+                  aria-label='Avinash`s LinkedIn profile'
                   rel='noopener noreferrer'>
                   <AiFillLinkedin className='text-4xl text-teal-500 hover:text-teal-600 cursor-pointer' />
                 </a>
                 <a
                   href='https://github.com/avinashrao'
                   target='_blank'
+                  aria-label='Avinash`s GitHub profile'
                   rel='noopener noreferrer'>
                   <AiFillGithub className='text-4xl text-teal-500 hover:text-teal-600 cursor-pointer' />
                 </a>
