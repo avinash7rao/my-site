@@ -36,7 +36,7 @@ export default function Home() {
         <link rel='icon' href='/favicon.ico' />
       </Head>
       <ThemeContext.Provider value={{ darkMode, toggleTheme }}>
-        <main className={darkMode ? "bg-gray-800" : ""}>
+        <main className={darkMode ? "bg-gray-800 p-4" : "p-4"}>
           <section className={styles.bgBlack}>
             <nav className='p-4 mb-4 flex justify-end'>
               <ul className='flex row-auto items-center space-x-3'>
