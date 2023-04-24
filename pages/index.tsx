@@ -21,7 +21,7 @@ export default function Home() {
           <nav className='p-10 mb-12 flex justify-end'>
             <ul>
               <li className='text-lg'>Resume</li>
-              <li>{DarkMode ? <IoMdSunny /> : <IoPartlySunnySharp />}</li>
+              {/* <li>{DarkMode ? <IoMdSunny /> : <IoPartlySunnySharp />}</li> */}
             </ul>
           </nav>
         </section>
