@@ -1,9 +1,32 @@
 import Head from "next/head";
 import Image from "next/image";
 import styles from "@/styles/Home.module.css";
-import { IoMdSunny, IoPartlySunnySharp } from "react-icons/io5";
+import { IoSunny, IoPartlySunnySharp } from "react-icons/io5";
+import {
+  AiFillTwitterCircle,
+  AiFillLinkedin,
+  AiFillGithub,
+} from "react-icons/ai";
+import myAvatar from "./images/my-avatar.png";
+import React, { createContext, useState } from "react";
+
+type ThemeContextType = {
+  darkMode: boolean;
+  toggleTheme: () => void;
+};
+
+const ThemeContext = createContext<ThemeContextType>({
+  darkMode: false,
+  toggleTheme: () => {},
+});
 
 export default function Home() {
+  const [darkMode, setDarkMode] = useState(false);
+
+  const toggleTheme = () => {
+    setDarkMode(!darkMode);
+  };
+
   return (
     <>
       <Head>
@@ -12,36 +35,72 @@ export default function Home() {
         <meta name='viewport' content='width=device-width, initial-scale=1' />
         <link rel='icon' href='/favicon.ico' />
       </Head>
-      <main>
-        <section className={styles.bgBlack}>
-          <nav className='p-10 mb-12 flex justify-between'>
-            <h1 className='text-xl'>Avinash Rao</h1>
-            <ul className='flex row-auto items-center'>
-              <li>
+      <ThemeContext.Provider value={{ darkMode, toggleTheme }}>
+        <main className={darkMode ? "bg-gray-800" : ""}>
+          <section className={styles.bgBlack}>
+            <nav className='p-4 mb-4 flex justify-end'>
+              <ul className='flex row-auto items-center space-x-3'>
+                <li>
+                  <a
+                    className='text-xl text-white hover:text-gray-300'
+                    href='https://docs.google.com/document/d/1P-VQ-cWAOPuug_vvYbLwrKTmzR2D8ZW1hh-66WACEO4/edit?usp=sharing'
+                    target='_blank'
+                    rel='noopener noreferrer'>
+                    Resume
+                  </a>
+                </li>
+                <li>
+                  {darkMode ? (
+                    <IoSunny
+                      className='text-2xl text-white cursor-pointer'
+                      onClick={toggleTheme}
+                    />
+                  ) : (
+                    <IoPartlySunnySharp
+                      className='text-2xl text-white cursor-pointer'
+                      onClick={toggleTheme}
+                    />
+                  )}
+                </li>
+              </ul>
+            </nav>
+            <div className='text-center pb-10'>
+              <div className='mx-auto bg-gradient-to-b from-teal-500 rounded-full w-80 h-80 relative overflow-hidden mt-20 md:h-96 md:w-96'>
+                <Image
+                  src={myAvatar}
+                  alt='avinash`s avatar'
+                  layout='fill'
+                  objectFit='cover'
+                />
+              </div>
+              <h2 className='text-5xl py-4 text-teal-600 font-medium dark:text-teal-400 md:text-6xl'>
+                Avinash Rao
+              </h2>
+              <h3 className='text-2xl py-2 dark:text-white md:text-3xl'>
+                Developer and designer.
+              </h3>
+              <p className='text-md py-5 leading-8 text-gray-800 dark:text-gray-200 max-w-xl mx-auto'>
+                I am a full stack developer and designer. I love to build
+                beautiful and functional websites and applications.
+              </p>
+              <div className='py-3 flex justify-center space-x-4'>
                 <a
-                  className='text-xl text-white hover:text-gray-300'
-                  href='https://docs.google.com/document/d/1P-VQ-cWAOPuug_vvYbLwrKTmzR2D8ZW1hh-66WACEO4/edit?usp=sharing'
+                  href='https://www.linkedin.com/in/avinashrao/'
                   target='_blank'
                   rel='noopener noreferrer'>
-                  Resume
+                  <AiFillLinkedin className='text-4xl text-teal-500 hover:text-teal-600 cursor-pointer' />
                 </a>
-              </li>
-              <li className='ml-10'>
                 <a
-                  className='text-xl text-white hover:text-gray-300'
-                  href='https://github.com/avinash7rao'
+                  href='https://github.com/avinashrao'
                   target='_blank'
                   rel='noopener noreferrer'>
-                  Github
+                  <AiFillGithub className='text-4xl text-teal-500 hover:text-teal-600 cursor-pointer' />
                 </a>
-              </li>
-              <li>
-                {/* {DarkMode ? <IoMdSunny /> : <IoPartlySunnySharp />} */}
-              </li>
-            </ul>
-          </nav>
-        </section>
-      </main>
+              </div>
+            </div>
+          </section>
+        </main>
+      </ThemeContext.Provider>
     </>
   );
 }
