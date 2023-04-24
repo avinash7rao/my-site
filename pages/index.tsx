@@ -1,11 +1,7 @@
 import Head from "next/head";
 import Image from "next/image";
-import { Inter } from "next/font/google";
 import styles from "@/styles/Home.module.css";
-import IoMdSunny from "react-icons/io";
-import IoPartlySunnySharp from "react-icons/io5";
-
-const inter = Inter({ subsets: ["latin"] });
+import { IoMdSunny, IoPartlySunnySharp } from "react-icons/io5";
 
 export default function Home() {
   return (
@@ -17,11 +13,31 @@ export default function Home() {
         <link rel='icon' href='/favicon.ico' />
       </Head>
       <main>
-        <section className='bg-black'>
-          <nav className='p-10 mb-12 flex justify-end'>
-            <ul>
-              <li className='text-lg'>Resume</li>
-              {/* <li>{DarkMode ? <IoMdSunny /> : <IoPartlySunnySharp />}</li> */}
+        <section className={styles.bgBlack}>
+          <nav className='p-10 mb-12 flex justify-between'>
+            <h1 className='text-xl'>Avinash Rao</h1>
+            <ul className='flex row-auto items-center'>
+              <li>
+                <a
+                  className='text-xl text-white hover:text-gray-300'
+                  href='https://docs.google.com/document/d/1P-VQ-cWAOPuug_vvYbLwrKTmzR2D8ZW1hh-66WACEO4/edit?usp=sharing'
+                  target='_blank'
+                  rel='noopener noreferrer'>
+                  Resume
+                </a>
+              </li>
+              <li className='ml-10'>
+                <a
+                  className='text-xl text-white hover:text-gray-300'
+                  href='https://github.com/avinash7rao'
+                  target='_blank'
+                  rel='noopener noreferrer'>
+                  Github
+                </a>
+              </li>
+              <li>
+                {/* {DarkMode ? <IoMdSunny /> : <IoPartlySunnySharp />} */}
+              </li>
             </ul>
           </nav>
         </section>
