@@ -47,6 +47,7 @@ export default function Home() {
                     href='https://docs.google.com/document/d/1P-VQ-cWAOPuug_vvYbLwrKTmzR2D8ZW1hh-66WACEO4/edit?usp=sharing'
                     target='_blank'
                     aria-label='Avinash`s resume'
+                    title='Avinash`s resume'
                     rel='noopener noreferrer'>
                     <DocumentIcon iconColor={"white"} />
                   </a>
@@ -56,11 +57,13 @@ export default function Home() {
                     <IoPartlySunnySharp
                       className='text-2xl text-white cursor-pointer'
                       onClick={toggleTheme}
+                      title='Enable Dark Mode'
                     />
                   ) : (
                     <IoSunny
                       className='text-2xl text-white cursor-pointer'
                       onClick={toggleTheme}
+                      title='Enable Light Mode'
                     />
                   )}
                 </li>
@@ -90,6 +93,7 @@ export default function Home() {
                   href='https://www.linkedin.com/in/avinashrao/'
                   target='_blank'
                   aria-label='Avinash`s LinkedIn profile'
+                  title='Avinash`s LinkedIn profile'
                   rel='noopener noreferrer'>
                   <AiFillLinkedin className='text-4xl text-teal-500 hover:text-teal-600 cursor-pointer' />
                 </a>
@@ -97,6 +101,7 @@ export default function Home() {
                   href='https://github.com/avinashrao'
                   target='_blank'
                   aria-label='Avinash`s GitHub profile'
+                  title='Avinash`s GitHub profile'
                   rel='noopener noreferrer'>
                   <AiFillGithub className='text-4xl text-teal-500 hover:text-teal-600 cursor-pointer' />
                 </a>
