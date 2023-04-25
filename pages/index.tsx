@@ -50,7 +50,7 @@ export default function Home() {
                     aria-label='Avinash`s resume'
                     title='Avinash`s resume'
                     rel='noopener noreferrer'>
-                    <DocumentIcon iconColor={"white"} />
+                    <DocumentIcon />
                   </a>
                 </li>
                 <li>

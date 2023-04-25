@@ -1,16 +1,12 @@
 import React from "react";
 
-interface MyComponentProps {
-  iconColor: string;
-}
-
-export default function DocumentIcon(props: MyComponentProps) {
+export default function DocumentIcon() {
   return (
     <div>
       <svg
         xmlns='http://www.w3.org/2000/svg'
         viewBox='0 0 24 24'
-        fill={props.iconColor}
+        fill='currentColor'
         className='w-6 h-6'>
         <path
           fillRule='evenodd'
