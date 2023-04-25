@@ -10,7 +10,7 @@ import {
 import { BiUserCircle } from "react-icons/bi";
 import myAvatar from "@/public/images/my-avatar.png";
 import React, { createContext, useState } from "react";
-import DocumentIcon from "@/public/images/documentIcon";
+import { IoDocumentTextOutline } from "react-icons/io5";
 import EmailLink from "@/components/_atoms/EmailLink";
 
 type ThemeContextType = {
@@ -50,7 +50,7 @@ export default function Home() {
                     aria-label='Avinash`s resume'
                     title='Avinash`s resume'
                     rel='noopener noreferrer'>
-                    <DocumentIcon />
+                    <IoDocumentTextOutline className='text-2xl text-white cursor-pointer' />
                   </a>
                 </li>
                 <li>
