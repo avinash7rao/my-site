@@ -10,6 +10,7 @@ import {
 import { BiUserCircle } from "react-icons/bi";
 import myAvatar from "./images/my-avatar.png";
 import React, { createContext, useState } from "react";
+import DocumentIcon from "./images/documentIcon";
 
 type ThemeContextType = {
   darkMode: boolean;
@@ -47,17 +48,17 @@ export default function Home() {
                     target='_blank'
                     aria-label='Avinash`s resume'
                     rel='noopener noreferrer'>
-                    <BiUserCircle className='text-2xl text-white cursor-pointer !important' />
+                    <DocumentIcon iconColor={"white"} />
                   </a>
                 </li>
                 <li>
                   {darkMode ? (
-                    <IoSunny
+                    <IoPartlySunnySharp
                       className='text-2xl text-white cursor-pointer'
                       onClick={toggleTheme}
                     />
                   ) : (
-                    <IoPartlySunnySharp
+                    <IoSunny
                       className='text-2xl text-white cursor-pointer'
                       onClick={toggleTheme}
                     />
@@ -78,7 +79,7 @@ export default function Home() {
                 Avinash Rao
               </h2>
               <h3 className='text-2xl py-2 dark:text-white md:text-3xl'>
-                Developer and designer.
+                Developer & Designer.
               </h3>
               <p className='text-md py-5 leading-8 text-gray-800 dark:text-gray-200 max-w-xl mx-auto'>
                 I am a full stack developer and designer. I love to build
