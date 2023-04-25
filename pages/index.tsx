@@ -11,6 +11,7 @@ import { BiUserCircle } from "react-icons/bi";
 import myAvatar from "./images/my-avatar.png";
 import React, { createContext, useState } from "react";
 import DocumentIcon from "../public/images/documentIcon";
+import EmailLink from "@/components/_atoms/EmailLink";
 
 type ThemeContextType = {
   darkMode: boolean;
@@ -105,6 +106,7 @@ export default function Home() {
                   rel='noopener noreferrer'>
                   <AiFillGithub className='text-4xl text-teal-500 hover:text-teal-600 cursor-pointer' />
                 </a>
+                <EmailLink emailAddress='avinash7rao@gmail.com' />
               </div>
             </div>
           </section>
