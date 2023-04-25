@@ -91,7 +91,7 @@ export default function Home() {
               </p>
               <div className='py-3 flex justify-center space-x-4'>
                 <a
-                  href='https://www.linkedin.com/in/avinashrao/'
+                  href='https://www.linkedin.com/in/avinash-k-rao/'
                   target='_blank'
                   aria-label='Avinash`s LinkedIn profile'
                   title='Avinash`s LinkedIn profile'
@@ -99,7 +99,7 @@ export default function Home() {
                   <AiFillLinkedin className='text-4xl text-teal-500 hover:text-teal-600 cursor-pointer' />
                 </a>
                 <a
-                  href='https://github.com/avinashrao'
+                  href='https://github.com/avinash7rao'
                   target='_blank'
                   aria-label='Avinash`s GitHub profile'
                   title='Avinash`s GitHub profile'
