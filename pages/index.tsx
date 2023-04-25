@@ -8,9 +8,9 @@ import {
   AiFillGithub,
 } from "react-icons/ai";
 import { BiUserCircle } from "react-icons/bi";
-import myAvatar from "./images/my-avatar.png";
+import myAvatar from "@/public/images/my-avatar.png";
 import React, { createContext, useState } from "react";
-import DocumentIcon from "../public/images/documentIcon";
+import DocumentIcon from "@/public/images/documentIcon";
 import EmailLink from "@/components/_atoms/EmailLink";
 
 type ThemeContextType = {
