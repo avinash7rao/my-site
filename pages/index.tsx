@@ -10,7 +10,7 @@ import {
 import { BiUserCircle } from "react-icons/bi";
 import myAvatar from "./images/my-avatar.png";
 import React, { createContext, useState } from "react";
-import DocumentIcon from "./images/documentIcon";
+import DocumentIcon from "../public/images/documentIcon";
 
 type ThemeContextType = {
   darkMode: boolean;
