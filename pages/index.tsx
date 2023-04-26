@@ -12,6 +12,7 @@ import myAvatar from "@/public/images/my-avatar.png";
 import React, { createContext, useState } from "react";
 import { IoDocumentTextOutline } from "react-icons/io5";
 import EmailLink from "@/components/_atoms/EmailLink";
+import { ImYoutube } from "react-icons/im";
 
 type ThemeContextType = {
   darkMode: boolean;
@@ -107,6 +108,14 @@ export default function Home() {
                   <AiFillGithub className='text-4xl text-teal-500 hover:text-teal-600 cursor-pointer' />
                 </a>
                 <EmailLink emailAddress='avinash7rao@gmail.com' />
+                <a
+                  href='https://www.youtube.com/@machis3150'
+                  target='_blank'
+                  aria-label='Avinash`s YouTube Channel'
+                  title='Avinash`s YouTube Channel'
+                  rel='noopener noreferrer'>
+                  <ImYoutube className='text-4xl text-teal-500 hover:text-teal-600 cursor-pointer' />
+                </a>
               </div>
             </div>
           </section>
