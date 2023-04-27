@@ -73,12 +73,7 @@ export default function Home() {
             </nav>
             <div className='text-center pb-10'>
               <div className='mx-auto bg-gradient-to-b from-teal-500 rounded-full w-80 h-80 relative overflow-hidden mt-20 md:h-96 md:w-96'>
-                <Image
-                  src={myAvatar}
-                  alt='Avinash`s avatar'
-                  layout='fill'
-                  objectFit='cover'
-                />
+                <Image src={myAvatar} alt='Avinash`s avatar' />
               </div>
               <h2 className='text-5xl py-4 text-teal-600 font-medium dark:text-teal-400 md:text-6xl'>
                 Avinash Rao
