@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 
 interface LogoProps {}
@@ -5,7 +6,7 @@ interface LogoProps {}
 const Logo: React.FC<LogoProps> = () => {
   return (
     <div>
-      <a href='/'>
+      <Link href='/'>
         <svg
           xmlns='http://www.w3.org/2000/svg'
           width='32px'
@@ -26,7 +27,7 @@ const Logo: React.FC<LogoProps> = () => {
             </g>
           </g>
         </svg>
-      </a>
+      </Link>
     </div>
   );
 };
