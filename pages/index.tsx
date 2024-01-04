@@ -4,11 +4,10 @@ import styles from "@/styles/Home.module.css";
 import { AiFillLinkedin, AiFillGithub } from "react-icons/ai";
 import myAvatar from "@/public/images/my-avatar.png";
 import React, { createContext, useState } from "react";
-import { IoDocumentTextOutline } from "react-icons/io5";
 import EmailLink from "@/components/_atoms/EmailLink";
 import { ImYoutube } from "react-icons/im";
 import Footer from "@/components/_organisms/Footer";
-import Logo from "@/components/_atoms/Logo";
+import Navbar from "@/components/_organisms/NavBar";
 
 type ThemeContextType = {
   darkMode: boolean;
@@ -38,38 +37,7 @@ export default function Home() {
       <ThemeContext.Provider value={{ darkMode, toggleTheme }}>
         <main className={darkMode ? "bg-gray-800 p-4" : "p-4"}>
           <section className={styles.bgBlack}>
-            <nav className='p-4 mb-4 flex justify-between'>
-              <div>
-                <Logo />
-              </div>
-              <ul className='flex row-auto items-center space-x-3'>
-                <li>
-                  <a
-                    href='https://docs.google.com/document/d/1P-VQ-cWAOPuug_vvYbLwrKTmzR2D8ZW1hh-66WACEO4/edit?usp=sharing'
-                    target='_blank'
-                    aria-label='Avinash`s resume'
-                    title='Avinash`s resume'
-                    rel='noopener noreferrer'>
-                    <IoDocumentTextOutline className='text-2xl text-white cursor-pointer' />
-                  </a>
-                </li>
-                {/* <li>
-                  {darkMode ? (
-                    <IoPartlySunnySharp
-                      className='text-2xl text-white cursor-pointer'
-                      onClick={toggleTheme}
-                      title='Enable Dark Mode'
-                    />
-                  ) : (
-                    <IoSunny
-                      className='text-2xl text-white cursor-pointer'
-                      onClick={toggleTheme}
-                      title='Enable Light Mode'
-                    />
-                  )}
-                </li> */}
-              </ul>
-            </nav>
+            <Navbar />
             <div className='text-center pb-10'>
               <div className='mx-auto bg-gradient-to-b from-teal-500 rounded-full w-80 h-80 relative overflow-hidden mt-20 md:h-96 md:w-96'>
                 <Image src={myAvatar} alt='Avinash`s avatar' />
