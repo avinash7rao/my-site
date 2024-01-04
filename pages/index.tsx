@@ -2,17 +2,14 @@ import Head from "next/head";
 import Image from "next/image";
 import styles from "@/styles/Home.module.css";
 import { IoSunny, IoPartlySunnySharp } from "react-icons/io5";
-import {
-  AiFillTwitterCircle,
-  AiFillLinkedin,
-  AiFillGithub,
-} from "react-icons/ai";
-import { BiUserCircle } from "react-icons/bi";
+import { AiFillLinkedin, AiFillGithub } from "react-icons/ai";
 import myAvatar from "@/public/images/my-avatar.png";
 import React, { createContext, useState } from "react";
 import { IoDocumentTextOutline } from "react-icons/io5";
 import EmailLink from "@/components/_atoms/EmailLink";
 import { ImYoutube } from "react-icons/im";
+import Footer from "@/components/_organisms/Footer";
+import Logo from "@/components/_atoms/logo";
 
 type ThemeContextType = {
   darkMode: boolean;
@@ -42,7 +39,10 @@ export default function Home() {
       <ThemeContext.Provider value={{ darkMode, toggleTheme }}>
         <main className={darkMode ? "bg-gray-800 p-4" : "p-4"}>
           <section className={styles.bgBlack}>
-            <nav className='p-4 mb-4 flex justify-end'>
+            <nav className='p-4 mb-4 flex justify-between'>
+              <div>
+                <Logo />
+              </div>
               <ul className='flex row-auto items-center space-x-3'>
                 <li>
                   <a
@@ -54,7 +54,7 @@ export default function Home() {
                     <IoDocumentTextOutline className='text-2xl text-white cursor-pointer' />
                   </a>
                 </li>
-                <li>
+                {/* <li>
                   {darkMode ? (
                     <IoPartlySunnySharp
                       className='text-2xl text-white cursor-pointer'
@@ -68,7 +68,7 @@ export default function Home() {
                       title='Enable Light Mode'
                     />
                   )}
-                </li>
+                </li> */}
               </ul>
             </nav>
             <div className='text-center pb-10'>
@@ -116,6 +116,7 @@ export default function Home() {
           </section>
         </main>
       </ThemeContext.Provider>
+      <Footer />
     </>
   );
 }
