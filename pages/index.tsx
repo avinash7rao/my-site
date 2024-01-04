@@ -1,7 +1,6 @@
 import Head from "next/head";
 import Image from "next/image";
 import styles from "@/styles/Home.module.css";
-import { IoSunny, IoPartlySunnySharp } from "react-icons/io5";
 import { AiFillLinkedin, AiFillGithub } from "react-icons/ai";
 import myAvatar from "@/public/images/my-avatar.png";
 import React, { createContext, useState } from "react";
@@ -9,7 +8,7 @@ import { IoDocumentTextOutline } from "react-icons/io5";
 import EmailLink from "@/components/_atoms/EmailLink";
 import { ImYoutube } from "react-icons/im";
 import Footer from "@/components/_organisms/Footer";
-import Logo from "@/components/_atoms/logo";
+import Logo from "@/components/_atoms/Logo";
 
 type ThemeContextType = {
   darkMode: boolean;
