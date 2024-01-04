@@ -7,7 +7,7 @@ interface NavbarProps {}
 
 const Navbar: React.FC<NavbarProps> = () => {
   return (
-    <nav className='p-4 mb-4 flex justify-between bg-black fixed w-full z-20 top-0 start-0 '>
+    <nav className='p-3 mb-3 flex justify-between bg-black/40 backdrop-blur fixed w-full z-20 top-0 start-0 '>
       <div className='px-2'>
         <Logo />
       </div>
