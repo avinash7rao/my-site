@@ -10,7 +10,7 @@ const Logo: React.FC<LogoProps> = () => {
         <svg
           xmlns='http://www.w3.org/2000/svg'
           width='32px'
-          height='auto'
+          height='32px'
           viewBox='0 0 24 24'
           version='1.1'>
           <g stroke='none' strokeWidth='1' fill='none' fillRule='evenodd'>
