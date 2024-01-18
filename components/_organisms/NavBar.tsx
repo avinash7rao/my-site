@@ -10,7 +10,7 @@ const Navbar: React.FC<NavbarProps> = () => {
     <section className={styles.bgBlack}>
       <nav className='p-7 mb-3 flex justify-between bg-black/40 backdrop-blur fixed w-full z-20 top-0 start-0 '>
         <div className='px-2'>
-          <Logo />
+          <Logo href='/' />
         </div>
         <ul className='flex row-auto items-center space-x-3 px-2 gap-4'>
           <li>
