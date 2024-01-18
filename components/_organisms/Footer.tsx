@@ -1,4 +1,7 @@
 import React from "react";
+import EmailLink from "@/components/_atoms/EmailLink";
+import { ImYoutube } from "react-icons/im";
+import { AiFillLinkedin, AiFillGithub } from "react-icons/ai";
 
 interface FooterProps {}
 
@@ -14,6 +17,33 @@ const Footer: React.FC<FooterProps> = () => {
           </a>
           . All Rights Reserved.
         </span>
+      </div>
+      <div className='py-3 flex justify-center space-x-4'>
+        <a
+          href='https://www.linkedin.com/in/avinash-k-rao/'
+          target='_blank'
+          aria-label='Avinash`s LinkedIn profile'
+          title='Avinash`s LinkedIn profile'
+          rel='noopener noreferrer'>
+          <AiFillLinkedin className='text-4xl text-teal-500 hover:text-teal-600 cursor-pointer' />
+        </a>
+        <a
+          href='https://github.com/avinash7rao'
+          target='_blank'
+          aria-label='Avinash`s GitHub profile'
+          title='Avinash`s GitHub profile'
+          rel='noopener noreferrer'>
+          <AiFillGithub className='text-4xl text-teal-500 hover:text-teal-600 cursor-pointer' />
+        </a>
+        <EmailLink emailAddress='avinash7rao@gmail.com' />
+        <a
+          href='https://www.youtube.com/@machis3150'
+          target='_blank'
+          aria-label='Avinash`s YouTube Channel'
+          title='Avinash`s YouTube Channel'
+          rel='noopener noreferrer'>
+          <ImYoutube className='text-4xl text-teal-500 hover:text-teal-600 cursor-pointer' />
+        </a>
       </div>
     </footer>
   );

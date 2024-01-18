@@ -1,13 +1,9 @@
 import Head from "next/head";
-import Image from "next/image";
 import styles from "@/styles/Home.module.css";
-import { AiFillLinkedin, AiFillGithub } from "react-icons/ai";
-import myAvatar from "@/public/images/my-avatar.png";
 import React, { createContext, useState } from "react";
-import EmailLink from "@/components/_atoms/EmailLink";
-import { ImYoutube } from "react-icons/im";
 import Footer from "@/components/_organisms/Footer";
 import Navbar from "@/components/_organisms/NavBar";
+import Hero from "@/components/_organisms/Hero";
 
 type ThemeContextType = {
   darkMode: boolean;
@@ -35,55 +31,12 @@ export default function Home() {
         <link rel='icon' href='/favicon.ico' />
       </Head>
       <ThemeContext.Provider value={{ darkMode, toggleTheme }}>
-        <main className={darkMode ? "bg-gray-800 p-4" : "p-4"}>
-          <section className={styles.bgBlack}>
-            <Navbar />
-            <div className='text-center pb-10'>
-              <div className='mx-auto bg-gradient-to-b from-teal-500 rounded-full w-80 h-80 relative overflow-hidden mt-20 md:h-96 md:w-96'>
-                <Image src={myAvatar} alt='Avinash`s avatar' />
-              </div>
-              <h2 className='text-5xl py-4 text-teal-600 font-medium dark:text-teal-400 md:text-6xl'>
-                Avinash Rao
-              </h2>
-              <h3 className='text-2xl py-2 dark:text-white md:text-3xl'>
-                Developer & Designer.
-              </h3>
-              <p className='text-md py-5 leading-8 text-gray-800 dark:text-gray-200 max-w-xl mx-auto'>
-                I am a full stack developer and designer. I love to build
-                beautiful and functional websites and applications.
-              </p>
-              <div className='py-3 flex justify-center space-x-4'>
-                <a
-                  href='https://www.linkedin.com/in/avinash-k-rao/'
-                  target='_blank'
-                  aria-label='Avinash`s LinkedIn profile'
-                  title='Avinash`s LinkedIn profile'
-                  rel='noopener noreferrer'>
-                  <AiFillLinkedin className='text-4xl text-teal-500 hover:text-teal-600 cursor-pointer' />
-                </a>
-                <a
-                  href='https://github.com/avinash7rao'
-                  target='_blank'
-                  aria-label='Avinash`s GitHub profile'
-                  title='Avinash`s GitHub profile'
-                  rel='noopener noreferrer'>
-                  <AiFillGithub className='text-4xl text-teal-500 hover:text-teal-600 cursor-pointer' />
-                </a>
-                <EmailLink emailAddress='avinash7rao@gmail.com' />
-                <a
-                  href='https://www.youtube.com/@machis3150'
-                  target='_blank'
-                  aria-label='Avinash`s YouTube Channel'
-                  title='Avinash`s YouTube Channel'
-                  rel='noopener noreferrer'>
-                  <ImYoutube className='text-4xl text-teal-500 hover:text-teal-600 cursor-pointer' />
-                </a>
-              </div>
-            </div>
-          </section>
+        <main className={`${darkMode ? "bg-gray-800 p-4" : "p-4"}`}>
+          <Navbar />
+          <Hero />
+          <Footer />
         </main>
       </ThemeContext.Provider>
-      <Footer />
     </>
   );
 }
