@@ -10,7 +10,7 @@ const Hero: React.FC<HeroProps> = () => {
       id='about'
       className='w-full max-w-screen-xl mx-auto p-4 md:py-8 m-4'>
       <div className='pb-10 flex flex-col lg:flex-row items-center justify-center gap-15'>
-        <div className='mx-10 bg-gradient-to-b from-teal-500 rounded-full w-80 h-80 relative overflow-hidden mt-20 md:h-96 md:w-96 lg:flex-end'>
+        <div className='mx-auto bg-gradient-to-b from-teal-500 rounded-full w-80 h-80 relative overflow-hidden mt-20 md:h-96 md:w-96 lg:flex-end'>
           <Image src={myAvatar} alt='Avinash`s avatar' />
         </div>
         <div className='text-center pt-16'>
