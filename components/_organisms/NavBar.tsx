@@ -7,7 +7,7 @@ interface NavbarProps {}
 
 const Navbar: React.FC<NavbarProps> = () => {
   return (
-    <section className={styles.bgBlack}>
+    <section className={`${styles.bgBlack}`}>
       <nav className='p-7 mb-3 flex justify-between bg-black/40 backdrop-blur fixed w-full z-20 top-0 start-0 '>
         <div className='px-2'>
           <Logo href='/' />
