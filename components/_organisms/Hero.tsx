@@ -1,6 +1,7 @@
 import React from "react";
 import myAvatar from "@/public/images/my-avatar.png";
 import Image from "next/image";
+import ButtonPill from "../_atoms/buttons/button-pill";
 
 interface HeroProps {}
 
@@ -26,15 +27,15 @@ const Hero: React.FC<HeroProps> = () => {
             </h3>
           </div>
           <div className='flex flex-row gap-3 py-6 justify-center'>
-            <button
-              className='bg-gray-700 hover:bg-white/50 backdrop-blur text-teal-600 font-bold py-2 px-4 rounded-full'
+            <ButtonPill
+              buttonClass='bg-gray-700 hover:bg-white/50 backdrop-blur text-teal-600 font-bold'
+              buttonText='View/Download Resume'
               onClick={() =>
                 window.open(
                   "https://docs.google.com/document/d/1P-VQ-cWAOPuug_vvYbLwrKTmzR2D8ZW1hh-66WACEO4/edit?usp=sharing"
                 )
-              }>
-              View/Download Resume
-            </button>
+              }
+            />
           </div>
         </div>
       </div>
