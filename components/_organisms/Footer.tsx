@@ -8,6 +8,7 @@ interface FooterProps {}
 const Footer: React.FC<FooterProps> = () => {
   return (
     <footer className='rounded-lg'>
+        <hr className='my-6 sm:mx-auto dark:border-gray-700 lg:my-8' />
       <div className='py-3 flex justify-center space-x-4'>
         <a
           href='https://www.linkedin.com/in/avinash-k-rao/'
@@ -36,7 +37,6 @@ const Footer: React.FC<FooterProps> = () => {
         </a>
       </div>
       <div className='w-full max-w-screen-xl mx-auto p-4 md:py-8 m-4'>
-        <hr className='my-6 sm:mx-auto dark:border-gray-700 lg:my-8' />
         <span className='block text-sm text-gray-500 sm:text-center dark:text-gray-400'>
           © 2024&nbsp;
           <a href='https://avirao.vercel.app/' className='hover:underline'>
