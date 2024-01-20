@@ -12,7 +12,7 @@ const ButtonPill: React.FC<ButtonPillProps> = ({
   buttonClass,
 }) => {
   return (
-    <buttons
+    <button
       className={`py-2 px-4 rounded-full ${buttonClass}`}
       onClick={onClick}>
       {buttonText}
