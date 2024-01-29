@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import Image from "next/image";
 import ButtonPill from "../_atoms/buttons/button-pill";
 import Section from "../_templates/Section";
@@ -8,6 +8,7 @@ interface HeroProps {
     name: string;
     position: string;
     summary: string;
+    resumeLink: string;
     avatar: {
       src: string;
       alt: string;
@@ -15,29 +16,7 @@ interface HeroProps {
   };
 }
 
-const Hero: React.FC<HeroProps> = () => {
-  const [data, setData] = useState<HeroProps | null>(null);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch("/api/data");
-        const result = await response.json();
-        setData(result);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
-    };
-
-    fetchData();
-  }, []);
-
-  if (!data) {
-    return <div>Loading...</div>;
-  }
-
-  const { info } = data;
-
+const Hero: React.FC<HeroProps> = ({ info }) => {
   return (
     <Section id='about'>
       <div className='pb-10 flex flex-col lg:flex-row items-center justify-center gap-15'>
@@ -66,11 +45,7 @@ const Hero: React.FC<HeroProps> = () => {
             <ButtonPill
               buttonClass='bg-gray-700 hover:bg-white/50 backdrop-blur text-teal-600 font-bold'
               buttonText='View/Download Resume'
-              onClick={() =>
-                window.open(
-                  "https://docs.google.com/document/d/1P-VQ-cWAOPuug_vvYbLwrKTmzR2D8ZW1hh-66WACEO4/edit?usp=sharing"
-                )
-              }
+              onClick={() => window.open(info?.resumeLink || "")}
             />
           </div>
         </div>

@@ -1,6 +1,5 @@
 import Head from "next/head";
-import styles from "@/styles/Home.module.css";
-import React, { createContext, useState } from "react";
+import React, { createContext, useState, useEffect } from "react";
 import Footer from "@/components/_organisms/Footer";
 import Navbar from "@/components/_organisms/NavBar";
 import Hero from "@/components/_organisms/Hero";
@@ -15,12 +14,39 @@ const ThemeContext = createContext<ThemeContextType>({
   toggleTheme: () => {},
 });
 
+interface ApiResponse {
+  info: {
+    name: string;
+    position: string;
+    summary: string;
+    resumeLink: string;
+    avatar: {
+      src: string;
+      alt: string;
+    };
+  };
+}
+
 export default function Home() {
   const [darkMode, setDarkMode] = useState(false);
-
+  const [data, setData] = useState<ApiResponse | null>(null);
   const toggleTheme = () => {
     setDarkMode(!darkMode);
   };
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch("/api/data");
+        const result = await response.json();
+        setData(result);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+
+    fetchData();
+  }, []);
 
   return (
     <>
@@ -33,8 +59,7 @@ export default function Home() {
       <ThemeContext.Provider value={{ darkMode, toggleTheme }}>
         <main className={`${darkMode ? "bg-gray-800 p-4" : "p-4"}`}>
           <Navbar />
-          <Hero />
-          <Footer />
+          {data ? <Hero info={data?.info} /> : <div>Loading...</div>} <Footer />
         </main>
       </ThemeContext.Provider>
     </>
