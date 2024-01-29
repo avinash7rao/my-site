@@ -10,7 +10,7 @@ import Navbar from "@/components/_organisms/NavBar";
 import { HeroProps } from "@/components/_organisms/Hero";
 import { SocialLinks } from "@/components/_organisms/Footer";
 import { AboutProps } from "@/components/_organisms/About";
-import ExtendedSpeedInsights from "@/components/_atoms/SpeedInsights";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 type ThemeContextType = {
   darkMode: boolean;
@@ -31,9 +31,6 @@ export default function Home() {
   const [infoData, setInfoData] = useState<HeroProps | null>(null);
   const [aboutData, setAboutData] = useState<AboutProps | null>(null);
   const [socialLinks, setSocialLinks] = useState<SocialLinks | null>(null);
-  const [projectId, setProjectId] = useState<string>(
-    "prj_sjujWSPADTTxLtP9B6FN0oxg6HmK"
-  );
   const toggleTheme = () => {
     setDarkMode(!darkMode);
   };
@@ -77,7 +74,7 @@ export default function Home() {
           <Suspense fallback={<div>Loading...</div>}>
             {socialLinks && <Footer socialLinks={socialLinks} />}
           </Suspense>
-          <ExtendedSpeedInsights projectId={projectId} />
+          <SpeedInsights />
         </main>
       </ThemeContext.Provider>
     </>
