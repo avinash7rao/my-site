@@ -6,8 +6,9 @@ import React, {
   lazy,
   Suspense,
 } from "react";
-import Footer from "@/components/_organisms/Footer";
 import Navbar from "@/components/_organisms/NavBar";
+import { HeroProps } from "@/components/_organisms/Hero";
+import { SocialLinks } from "@/components/_organisms/Footer";
 
 type ThemeContextType = {
   darkMode: boolean;
@@ -19,24 +20,13 @@ const ThemeContext = createContext<ThemeContextType>({
   toggleTheme: () => {},
 });
 
-interface ApiResponse {
-  info: {
-    name: string;
-    position: string;
-    summary: string;
-    resumeLink: string;
-    avatar: {
-      src: string;
-      alt: string;
-    };
-  };
-}
-
 const Hero = lazy(() => import("@/components/_organisms/Hero"));
+const Footer = lazy(() => import("@/components/_organisms/Footer"));
 
 export default function Home() {
   const [darkMode, setDarkMode] = useState(false);
-  const [data, setData] = useState<ApiResponse | null>(null);
+  const [data, setData] = useState<HeroProps | null>(null);
+  const [socialLinks, setSocialLinks] = useState<SocialLinks | null>(null);
   const toggleTheme = () => {
     setDarkMode(!darkMode);
   };
@@ -44,9 +34,13 @@ export default function Home() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch("/api/data");
+        const response = await fetch("/api/allData");
         const result = await response.json();
-        setData(result);
+
+        if (result) {
+          setData(result?.info);
+          setSocialLinks(result?.socialLinks);
+        }
       } catch (error) {
         console.error("Error fetching data:", error);
       }
@@ -69,7 +63,9 @@ export default function Home() {
           <Suspense fallback={<div>Loading...</div>}>
             {data && <Hero info={data?.info} />}
           </Suspense>
-          <Footer />
+          <Suspense fallback={<div>Loading...</div>}>
+            {socialLinks && <Footer socialLinks={socialLinks} />}
+          </Suspense>
         </main>
       </ThemeContext.Provider>
     </>

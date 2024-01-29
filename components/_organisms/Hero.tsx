@@ -3,7 +3,7 @@ import Image from "next/image";
 import ButtonPill from "../_atoms/buttons/button-pill";
 import Section from "../_templates/Section";
 
-interface HeroProps {
+export interface HeroProps {
   info: {
     name: string;
     position: string;
