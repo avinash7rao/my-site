@@ -1,0 +1,20 @@
+{
+  "frontend": {
+    "Javascript": 100,
+    "HTML": 100,
+    "CSS": 100,
+    "React": 100,
+    "Redux": 80,
+    "Angular": 60,
+    "Vue": 60,
+    "TypeScript": 90,
+    "Webpack": 70,
+    "Gulp": 75,
+    "Bootstrap": 100,
+    "Material UI": 100,
+    "jQuery": 100,
+    "SASS": 100,
+    "Handlebars": 100,
+    "Tailwind CSS": 100
+  }
+}

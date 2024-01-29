@@ -1,0 +1,11 @@
+{
+  "info": {
+    "name": "Avinash Rao",
+    "position": "Developer & Designer",
+    "summary": "I am a developer and designer. I love to create beautiful websites and applications.",
+    "avatar": {
+      "src": "/images/my-avatar.png",
+      "alt": "Avinash's Avatar"
+    }
+  }
+}
