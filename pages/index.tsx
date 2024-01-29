@@ -10,6 +10,7 @@ import Navbar from "@/components/_organisms/NavBar";
 import { HeroProps } from "@/components/_organisms/Hero";
 import { SocialLinks } from "@/components/_organisms/Footer";
 import { AboutProps } from "@/components/_organisms/About";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 type ThemeContextType = {
   darkMode: boolean;
@@ -73,6 +74,7 @@ export default function Home() {
           <Suspense fallback={<div>Loading...</div>}>
             {socialLinks && <Footer socialLinks={socialLinks} />}
           </Suspense>
+          <SpeedInsights />
         </main>
       </ThemeContext.Provider>
     </>
