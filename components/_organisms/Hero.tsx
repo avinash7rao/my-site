@@ -19,7 +19,7 @@ export interface HeroProps {
 const Hero: React.FC<HeroProps> = ({ info }) => {
   return (
     <Section id='/'>
-      <div className='pb-10 pt-6 flex flex-col lg:flex-row items-center justify-center gap-15'>
+      <div className='pb-10 lg:pt-6 flex flex-col lg:flex-row items-center justify-center gap-15'>
         <div className='mx-10 bg-gradient-to-b from-teal-500 rounded-full w-80 h-80 relative overflow-hidden mt-20 md:h-96 md:w-96 lg:flex-end'>
           <Image
             src={info?.avatar.src || ""}
