@@ -9,6 +9,7 @@ import React, {
 import Navbar from "@/components/_organisms/NavBar";
 import { HeroProps } from "@/components/_organisms/Hero";
 import { SocialLinks } from "@/components/_organisms/Footer";
+import { AboutProps } from "@/components/_organisms/About";
 
 type ThemeContextType = {
   darkMode: boolean;
@@ -22,10 +23,12 @@ const ThemeContext = createContext<ThemeContextType>({
 
 const Hero = lazy(() => import("@/components/_organisms/Hero"));
 const Footer = lazy(() => import("@/components/_organisms/Footer"));
+const About = lazy(() => import("@/components/_organisms/About"));
 
 export default function Home() {
   const [darkMode, setDarkMode] = useState(false);
   const [infoData, setInfoData] = useState<HeroProps | null>(null);
+  const [aboutData, setAboutData] = useState<AboutProps | null>(null);
   const [socialLinks, setSocialLinks] = useState<SocialLinks | null>(null);
   const toggleTheme = () => {
     setDarkMode(!darkMode);
@@ -37,9 +40,10 @@ export default function Home() {
         const response = await fetch("/api/allData");
         const result = await response.json();
 
-        if (result) {
-          setInfoData(result?.info);
-          setSocialLinks(result?.socialLinks);
+        if (result?.info) {
+          setInfoData(result.info);
+          setAboutData(result.info.About);
+          setSocialLinks(result.socialLinks);
         }
       } catch (error) {
         console.error("Error fetching data:", error);
@@ -62,6 +66,9 @@ export default function Home() {
           <Navbar />
           <Suspense fallback={<div>Loading...</div>}>
             {infoData && <Hero info={infoData?.info} />}
+          </Suspense>
+          <Suspense fallback={<div>Loading...</div>}>
+            {aboutData && <About about={aboutData} />}
           </Suspense>
           <Suspense fallback={<div>Loading...</div>}>
             {socialLinks && <Footer socialLinks={socialLinks} />}

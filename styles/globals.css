@@ -103,3 +103,7 @@ a {
   color: inherit;
   text-decoration: none;
 }
+
+p {
+  color: rgb(156 163 175)
+}
