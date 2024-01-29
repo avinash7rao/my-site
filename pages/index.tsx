@@ -25,7 +25,7 @@ const Footer = lazy(() => import("@/components/_organisms/Footer"));
 
 export default function Home() {
   const [darkMode, setDarkMode] = useState(false);
-  const [data, setData] = useState<HeroProps | null>(null);
+  const [infoData, setInfoData] = useState<HeroProps | null>(null);
   const [socialLinks, setSocialLinks] = useState<SocialLinks | null>(null);
   const toggleTheme = () => {
     setDarkMode(!darkMode);
@@ -38,7 +38,7 @@ export default function Home() {
         const result = await response.json();
 
         if (result) {
-          setData(result?.info);
+          setInfoData(result?.info);
           setSocialLinks(result?.socialLinks);
         }
       } catch (error) {
@@ -61,7 +61,7 @@ export default function Home() {
         <main className={`${darkMode ? "bg-gray-800 p-4" : "p-4"}`}>
           <Navbar />
           <Suspense fallback={<div>Loading...</div>}>
-            {data && <Hero info={data?.info} />}
+            {infoData && <Hero info={infoData?.info} />}
           </Suspense>
           <Suspense fallback={<div>Loading...</div>}>
             {socialLinks && <Footer socialLinks={socialLinks} />}
