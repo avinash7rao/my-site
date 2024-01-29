@@ -1,8 +1,13 @@
 import Head from "next/head";
-import React, { createContext, useState, useEffect } from "react";
+import React, {
+  createContext,
+  useState,
+  useEffect,
+  lazy,
+  Suspense,
+} from "react";
 import Footer from "@/components/_organisms/Footer";
 import Navbar from "@/components/_organisms/NavBar";
-import Hero from "@/components/_organisms/Hero";
 
 type ThemeContextType = {
   darkMode: boolean;
@@ -26,6 +31,8 @@ interface ApiResponse {
     };
   };
 }
+
+const Hero = lazy(() => import("@/components/_organisms/Hero"));
 
 export default function Home() {
   const [darkMode, setDarkMode] = useState(false);
@@ -59,7 +66,10 @@ export default function Home() {
       <ThemeContext.Provider value={{ darkMode, toggleTheme }}>
         <main className={`${darkMode ? "bg-gray-800 p-4" : "p-4"}`}>
           <Navbar />
-          {data ? <Hero info={data?.info} /> : <div>Loading...</div>} <Footer />
+          <Suspense fallback={<div>Loading...</div>}>
+            {data && <Hero info={data?.info} />}
+          </Suspense>
+          <Footer />
         </main>
       </ThemeContext.Provider>
     </>
