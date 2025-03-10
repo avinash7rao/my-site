@@ -4,19 +4,17 @@ import ButtonPill from "../_atoms/buttons/button-pill";
 import Section from "../_templates/Section";
 
 export interface HeroProps {
-  info: {
-    name: string;
-    position: string;
-    summary: string;
-    resumeLink: string;
-    avatar: {
-      src: string;
-      alt: string;
-    };
+  name: string;
+  position: string;
+  summary: string;
+  resumeLink: string;
+  avatar: {
+    src: string;
+    alt: string;
   };
 }
 
-const Hero: React.FC<HeroProps> = ({ info }) => {
+const Hero: React.FC<{ info: HeroProps }> = ({ info }) => {
   return (
     <Section id='/'>
       <div className='pb-10 lg:pt-6 flex flex-col lg:flex-row items-center justify-center gap-15'>

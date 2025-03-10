@@ -1,16 +1,11 @@
 import Head from "next/head";
-import React, {
-  createContext,
-  useState,
-  useEffect,
-  lazy,
-  Suspense,
-} from "react";
+import React, { createContext, useState, lazy, Suspense } from "react";
 import Navbar from "@/components/_organisms/NavBar";
 import { HeroProps } from "@/components/_organisms/Hero";
 import { SocialLinks } from "@/components/_organisms/Footer";
 import { AboutProps } from "@/components/_organisms/About";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import { getAllData } from "./api/allData";
 
 type ThemeContextType = {
   darkMode: boolean;
@@ -23,36 +18,43 @@ const ThemeContext = createContext<ThemeContextType>({
 });
 
 const Hero = lazy(() => import("@/components/_organisms/Hero"));
-const Footer = lazy(() => import("@/components/_organisms/Footer"));
 const About = lazy(() => import("@/components/_organisms/About"));
+const Footer = lazy(() => import("@/components/_organisms/Footer"));
 
-export default function Home() {
+type InitialData = {
+  info?: HeroProps;
+  aboutMe?: AboutProps;
+  socialLinks?: SocialLinks;
+};
+
+type HomeProps = {
+  initialData: InitialData | null;
+  error?: string;
+};
+
+export async function getServerSideProps() {
+  try {
+    const data = await getAllData();
+    return {
+      props: {
+        initialData: data,
+      },
+    };
+  } catch (error) {
+    return {
+      props: {
+        initialData: null,
+        error: (error as Error).message || "Failed to fetch data",
+      },
+    };
+  }
+}
+
+export default function Home({ initialData, error }: HomeProps) {
   const [darkMode, setDarkMode] = useState(false);
-  const [infoData, setInfoData] = useState<HeroProps | null>(null);
-  const [aboutData, setAboutData] = useState<AboutProps | null>(null);
-  const [socialLinks, setSocialLinks] = useState<SocialLinks | null>(null);
   const toggleTheme = () => {
     setDarkMode(!darkMode);
   };
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch("/api/allData");
-        const result = await response.json();
-
-        if (result?.info) {
-          setInfoData(result.info);
-          setAboutData(result.info.About);
-          setSocialLinks(result.socialLinks);
-        }
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
-    };
-
-    fetchData();
-  }, []);
 
   return (
     <>
@@ -66,13 +68,15 @@ export default function Home() {
         <main className={`${darkMode ? "bg-gray-800 p-4" : "p-4"}`}>
           <Navbar />
           <Suspense fallback={<div>Loading...</div>}>
-            {infoData && <Hero info={infoData?.info} />}
+            {initialData?.info && <Hero info={initialData.info} />}
           </Suspense>
           <Suspense fallback={<div>Loading...</div>}>
-            {aboutData && <About about={aboutData} />}
+            {initialData?.aboutMe && <About about={initialData.aboutMe} />}
           </Suspense>
           <Suspense fallback={<div>Loading...</div>}>
-            {socialLinks && <Footer socialLinks={socialLinks} />}
+            {initialData?.socialLinks && (
+              <Footer socialLinks={initialData.socialLinks} />
+            )}
           </Suspense>
           <SpeedInsights />
         </main>
