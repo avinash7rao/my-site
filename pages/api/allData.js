@@ -56,6 +56,7 @@ const getAllData = async () => {
     return data;
   } catch (error) {
     console.error("Error fetching data:", error.stack);
+    console.error("Error details:", error);
     throw error;
   }
 };
