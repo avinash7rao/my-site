@@ -4,6 +4,7 @@ import Navbar from "@/components/_organisms/NavBar";
 import { HeroProps } from "@/components/_organisms/Hero";
 import { SocialLinks } from "@/components/_organisms/Footer";
 import { AboutProps } from "@/components/_organisms/About";
+import { ProjectsProps } from "@/components/_organisms/Projects";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { getAllData } from "./api/allData";
 
@@ -19,6 +20,7 @@ const ThemeContext = createContext<ThemeContextType>({
 
 const Hero = lazy(() => import("@/components/_organisms/Hero"));
 const About = lazy(() => import("@/components/_organisms/About"));
+const Projects = lazy(() => import("@/components/_organisms/Projects"));
 const Footer = lazy(() => import("@/components/_organisms/Footer"));
 
 type InitialData = {
@@ -72,6 +74,9 @@ export default function Home({ initialData, error }: HomeProps) {
           </Suspense>
           <Suspense fallback={<div>Loading...</div>}>
             {initialData?.aboutMe && <About about={initialData.aboutMe} />}
+          </Suspense>
+          <Suspense fallback={<div>Loading...</div>}>
+            {initialData && <Projects projects={initialData} />}
           </Suspense>
           <Suspense fallback={<div>Loading...</div>}>
             {initialData?.socialLinks && (
