@@ -27,6 +27,7 @@ type InitialData = {
   info?: HeroProps;
   aboutMe?: AboutProps;
   socialLinks?: SocialLinks;
+  projects?: ProjectsProps;
 };
 
 type HomeProps = {
@@ -76,7 +77,9 @@ export default function Home({ initialData, error }: HomeProps) {
             {initialData?.aboutMe && <About about={initialData.aboutMe} />}
           </Suspense>
           <Suspense fallback={<div>Loading...</div>}>
-            {initialData && <Projects projects={initialData} />}
+            {initialData?.projects && (
+              <Projects projects={initialData.projects} />
+            )}
           </Suspense>
           <Suspense fallback={<div>Loading...</div>}>
             {initialData?.socialLinks && (
