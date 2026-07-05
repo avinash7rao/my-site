@@ -7,6 +7,7 @@ import { AboutProps } from "@/components/_organisms/About";
 import { ProjectsProps } from "@/components/_organisms/Projects";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { getAllData } from "./api/allData";
+import { Analytics } from "@vercel/analytics/next";
 
 type ThemeContextType = {
   darkMode: boolean;
@@ -89,6 +90,7 @@ export default function Home({ initialData, error }: HomeProps) {
           <SpeedInsights />
         </main>
       </ThemeContext.Provider>
+      <Analytics />
     </>
   );
 }
