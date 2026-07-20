@@ -43,7 +43,7 @@ const Hero: React.FC<{ info: HeroProps }> = ({ info }) => {
             <ButtonPill
               buttonClass='bg-gray-700 hover:bg-white/50 backdrop-blur text-teal-600 font-bold'
               buttonText='View/Download Resume'
-              onClick={() => window.open(info?.resumeLink || "")}
+              onClick={() => window.open(info?.resumeLink || "", "_blank")}
             />
           </div>
         </div>
